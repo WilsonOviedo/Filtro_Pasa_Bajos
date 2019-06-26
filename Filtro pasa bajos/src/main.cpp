@@ -20,10 +20,13 @@ int adc_raw = 0;
 #define alpha 0.05   //Alpha
 #define pin PA7      //Pin de lectura
 
+
 void setup(){
    Serial3.begin(4800);   
    pinMode(pin,INPUT_ANALOG);
-   delay(500);   
+   pinMode(PB12,OUTPUT);
+   delay(500);  
+   digitalWrite(PB12,LOW); 
 }
 
 void loop(){
@@ -32,4 +35,5 @@ void loop(){
    Serial3.print(adc_raw);
    Serial3.print(",");  
    Serial3.println(adc_filtrado);
+   
 }
